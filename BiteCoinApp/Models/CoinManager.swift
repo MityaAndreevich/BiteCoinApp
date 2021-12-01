@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 protocol CoinManagerDeledate {
     func didUpdateCoin(price: String, coin: String)
     func didFailWithError(error: Error)
@@ -22,7 +23,7 @@ struct CoinManager {
     
     func getCoinPrice(for currency: String) {
         let urlString = "\(baseURL)/\(currency)?apikey=\(apiKey)"
-   
+        
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
